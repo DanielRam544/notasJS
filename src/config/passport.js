@@ -8,7 +8,7 @@ passport.use(new LocalStragegy(
     usernameField : 'email'
     },
     async function(email, password, done){
-        const usuario = await Usuario.findOne({email: email});
+        const usuario = await Usuario.find({email: email});
         if(!usuario){
             return done(null, false, {message: 'No se encuentra el usuario'});
         }else {

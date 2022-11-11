@@ -47,7 +47,7 @@ router.post('/users/singup', async function(req, res){
     }else{
 
         //Usuario no exista
-        const emailUser = await Usuario.findOne({email: email});
+        const emailUser = await Usuario.find({email: email});
         if (emailUser){
             error.push({text: 'El email ya esta en uso'});
             res.render('users/singup', {
